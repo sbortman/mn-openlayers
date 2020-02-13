@@ -1,0 +1,16 @@
+.project
+.vscode
+.settings
+node_modules
+Thumbs.db
+.DS_Store
+.gradle
+build/
+out/
+.idea
+*.iml
+*.ipr
+*.iws
+.settings
+.classpath
+prodDb.mv.db
