@@ -1,13 +1,16 @@
-task copyClientResources(dependsOn: ':client:build') { 
-    group = 'build'
-    description = 'Copy client resources into server'
+task copyClientResources( type: Copy, dependsOn: ':client:build' ) {
+	group = 'build'
+	description = 'Copy client resources into server'
+	def srcDir = project(':client').buildDir.absolutePath
+	def destDir = "${ project( ':server' ).buildDir }/resources/main/public"
+		
+	println "Copying files from ${ srcDir } to ${ destDir }"
+	//	println new File( destDir ).mkdirs()
+		
+	from srcDir
+	into destDir
 }
-copyClientResources.doFirst { 
-    copy {
-        from project(':client').buildDir.absolutePath
-        into "${project(':server').buildDir}/resources/main/public"
-    }
-}
+
 
 task assembleServerAndClient(dependsOn: ['copyClientResources', ':server:shadowJar']) { 
     group = 'build'
