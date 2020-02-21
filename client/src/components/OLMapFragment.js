@@ -1,5 +1,6 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
+import queryString from "query-string";
 
 // Start Openlayers imports
 import { Map, View } from "ol";
@@ -33,6 +34,9 @@ class OLMapFragment extends React.Component {
     this.updateDimensions();
   }
   componentDidMount() {
+    const qsValues = queryString.parse(window.location.search);
+    console.log(qsValues);
+
     // Create an Openlayer Map instance with two tile layers
     const map = new Map({
       //  Display the map in the div with the id of map
