@@ -38,8 +38,6 @@ class OLMapFragment extends React.Component {
     const qsValues = queryString.parse(window.location.search);
     console.log(qsValues);
 
-    console.log(SERVER_URL);
-
     // Create an Openlayer Map instance with two tile layers
     const map = new Map({
       //  Display the map in the div with the id of map
