@@ -1,6 +1,7 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import queryString from "query-string";
+import { SERVER_URL } from "./../config";
 
 // Start Openlayers imports
 import { Map, View } from "ol";
@@ -55,22 +56,13 @@ class OLMapFragment extends React.Component {
         }),
         new TileLayer({
           source: new TileWMSSource({
-            //  TODO: url: `${SERVER_URL}/wms`,
-            url: `http://localhost:8080/wms`,
+            url: `${SERVER_URL}/wms`,
             params: {},
             projection: "EPSG:4326"
           }),
           name: "Overlay"
         })
       ],
-      // Add in the following map controls
-      // controls: DefaultControls().extend([
-      //   // new ZoomSlider(),
-      //   // new MousePosition(),
-      //   // new ScaleLine(),
-      //   // new OverviewMap()
-      // ]),
-      // Render the tile layers in a map view with a Mercator projection
       view: new View({
         //                projection: 'EPSG:3857',
         projection: "EPSG:4326",
